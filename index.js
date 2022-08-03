@@ -68,113 +68,113 @@
     })
 
     var i,index;
-    async function partition(left, right) {
-       return new Promise( async (resolve)=>{ var pivot_ind = Math.floor((right + left) / 2);
-        var pivot   = arr[pivot_ind]; //middle element
-        i = left; //left pointer
-        var j = right; //right pointer
+//     async function partition(left, right) {
+//        return new Promise( async (resolve)=>{ var pivot_ind = Math.floor((right + left) / 2);
+//         var pivot   = arr[pivot_ind]; //middle element
+//         i = left; //left pointer
+//         var j = right; //right pointer
 
-            clear();
-            fill(i,j,"red","red","quick",pivot_ind);
-            await lagger(1000-velo);
+//             clear();
+//             fill(i,j,"red","red","quick",pivot_ind);
+//             await lagger(1000-velo);
 
-        while (i <= j) {
-            while (arr[i] < pivot) {
-                i++;
-                clear();
-                fill(i,j,"red","red","quick",pivot_ind);
-                await lagger(1000-velo);
-            }
-            while (arr[j] > pivot) {
-                clear();
-                fill(i,j,"blue","red","quick",pivot_ind);
-                await lagger(1000-velo);
-                j--;
-            }
+//         while (i <= j) {
+//             while (arr[i] < pivot) {
+//                 i++;
+//                 clear();
+//                 fill(i,j,"red","red","quick",pivot_ind);
+//                 await lagger(1000-velo);
+//             }
+//             while (arr[j] > pivot) {
+//                 clear();
+//                 fill(i,j,"blue","red","quick",pivot_ind);
+//                 await lagger(1000-velo);
+//                 j--;
+//             }
 
-            clear();
-            fill(i,j,"blue","blue","quick",pivot_ind);
-            await lagger(1000-velo);
+//             clear();
+//             fill(i,j,"blue","blue","quick",pivot_ind);
+//             await lagger(1000-velo);
 
-            if (i <= j) {
-                swap(i, j);
-                i++;
-                j--;
-            }
-        }
-        index = i;
-        resolve("resolved");
-    });
-    }
+//             if (i <= j) {
+//                 swap(i, j);
+//                 i++;
+//                 j--;
+//             }
+//         }
+//         index = i;
+//         resolve("resolved");
+//     });
+//     }
 
-    function swap(leftIndex, rightIndex){
-        var temp = arr[leftIndex];
-        arr[leftIndex] = arr[rightIndex];
-        arr[rightIndex] = temp;
-    }
+//     function swap(leftIndex, rightIndex){
+//         var temp = arr[leftIndex];
+//         arr[leftIndex] = arr[rightIndex];
+//         arr[rightIndex] = temp;
+//     }
 
-   async function quickSort(left, right) {
+//    async function quickSort(left, right) {
         
-        startTimer();
-        let button = document.querySelectorAll('.disbut');
-        button.forEach((item)=>{item.disabled = true;});
-        button.forEach((item)=>{item.style.color = 'red'});
+//         startTimer();
+//         let button = document.querySelectorAll('.disbut');
+//         button.forEach((item)=>{item.disabled = true;});
+//         button.forEach((item)=>{item.style.color = 'red'});
 
-        if (arr.length > 1) {
+//         if (arr.length > 1) {
 
-            var pivot_ind = Math.floor((right + left) / 2);
-            var pivot   = arr[pivot_ind]; //middle element
-            var i = left; //left pointer
-            var j = right; //right pointer
+//             var pivot_ind = Math.floor((right + left) / 2);
+//             var pivot   = arr[pivot_ind]; //middle element
+//             var i = left; //left pointer
+//             var j = right; //right pointer
 
-            clear();
-            fill(i,j,"red","red","quick",pivot_ind);
-            await lagger(1000-velo);
+//             clear();
+//             fill(i,j,"red","red","quick",pivot_ind);
+//             await lagger(1000-velo);
 
-        while (i <= j) {
-            while (arr[i] < pivot) {
-                i++;
-                clear();
-                fill(i,j,"red","red","quick",pivot_ind);
-                await lagger(1000-velo);
-            }
-            while (arr[j] > pivot) {
-                clear();
-                fill(i,j,"blue","red","quick",pivot_ind);
-                await lagger(1000-velo);
-                j--;
-            }
+//         while (i <= j) {
+//             while (arr[i] < pivot) {
+//                 i++;
+//                 clear();
+//                 fill(i,j,"red","red","quick",pivot_ind);
+//                 await lagger(1000-velo);
+//             }
+//             while (arr[j] > pivot) {
+//                 clear();
+//                 fill(i,j,"blue","red","quick",pivot_ind);
+//                 await lagger(1000-velo);
+//                 j--;
+//             }
 
-            clear();
-            fill(i,j,"blue","blue","quick",pivot_ind);
-            await lagger(1000-velo);
+//             clear();
+//             fill(i,j,"blue","blue","quick",pivot_ind);
+//             await lagger(1000-velo);
 
-            if (i <= j) {
-                var temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-                i++;
-                j--;
-            }
-        }
-        index = i;
-
-
-          // await partition(left, right); //index returned from partition
+//             if (i <= j) {
+//                 var temp = arr[i];
+//                 arr[i] = arr[j];
+//                 arr[j] = temp;
+//                 i++;
+//                 j--;
+//             }
+//         }
+//         index = i;
 
 
-            if (left < index - 1) { //more elements on the left side of the pivot
-                quickSort(left, index - 1);
-            }
-            if (index < right) { //more elements on the right side of the pivot
-                quickSort(index, right);
-            }
-        }
+//           // await partition(left, right); //index returned from partition
 
-        button.forEach((item)=>{item.disabled = false;});
-        button.forEach((item)=>{item.style.color = 'green'});
-        endTimer();
-    }
+
+//             if (left < index - 1) { //more elements on the left side of the pivot
+//                 quickSort(left, index - 1);
+//             }
+//             if (index < right) { //more elements on the right side of the pivot
+//                 quickSort(index, right);
+//             }
+//         }
+
+//         button.forEach((item)=>{item.disabled = false;});
+//         button.forEach((item)=>{item.style.color = 'green'});
+//         endTimer();
+//     }
 
     
     function fill(g,h,_fir,_sec,sort,pivot) {
