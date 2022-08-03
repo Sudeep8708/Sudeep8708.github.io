@@ -402,6 +402,9 @@
                 console.log('Reaching');
                 document.querySelector(".pause").removeEventListener('click',playbuttonclick);
                 document.querySelector(".pause").addEventListener('click',pauser);
+                if(updateTimer!=undefined) {
+                    clearInterval(updateTimer);
+                }
                 updateTimer = setInterval(repeat,1000);
                 resolve("resolved");
             }
